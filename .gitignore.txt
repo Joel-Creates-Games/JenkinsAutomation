@@ -1,0 +1,13 @@
+# Compiled C++ executables and object files
+*.out
+*.exe
+*.o
+*.obj
+
+# Python and pytest cache files
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# OS generated files
+.DS_Store
