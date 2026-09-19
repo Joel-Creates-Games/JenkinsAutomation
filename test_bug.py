@@ -3,10 +3,10 @@ import subprocess
 def test_memory_leak():
     # Compile the C++ file with AddressSanitizer
     compile_process = subprocess.run(
-        ["clang++", "-fsanitize=address", "-g", "jenkins/jenkins.cpp", "-o", "buggy"],
-        capture_output=True,
-        text=True
-    )
+    ["clang++", "-fsanitize=address", "-g", "jenkins/jenkins.cpp", "jenkins/buggy.cpp", "-o", "buggy"],
+    capture_output=True,
+    text=True
+)
     assert compile_process.returncode == 0, f"Compilation failed: {compile_process.stderr}"
 
     # Run the compiled binary
