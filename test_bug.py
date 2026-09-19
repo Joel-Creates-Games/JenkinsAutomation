@@ -10,9 +10,11 @@ def test_memory_leak():
     )
     assert compile_process.returncode == 0, f"Compilation failed: {compile_process.stderr}"
 
-    # 2. Force LeakSanitizer ON in the environment variables for the CI pipeline
+    # 2. Force LeakSanitizer to ignore pointers left on the stack!
+    # This forces it to catch the memory allocated in main() that wasn't deleted.
     asan_env = os.environ.copy()
     asan_env["ASAN_OPTIONS"] = "detect_leaks=1"
+    asan_env["LSAN_OPTIONS"] = "use_stacks=0"
 
     # 3. Run the compiled binary with the custom environment
     run_process = subprocess.run(
