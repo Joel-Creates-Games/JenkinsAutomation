@@ -2,10 +2,17 @@
 //
 
 #include <iostream>
+#include "buggy.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    buggy* thisIsAMemoryLeak = new buggy();
+    std::vector<int>* returnVector = thisIsAMemoryLeak->MemoryLeakFunction();
+    for (int vals : *returnVector) {
+        std::cout << vals << "\n";
+    }
+    delete thisIsAMemoryLeak;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

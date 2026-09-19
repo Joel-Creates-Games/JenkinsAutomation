@@ -18,5 +18,13 @@
     <ClCompile Include="jenkins.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="buggy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="buggy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
