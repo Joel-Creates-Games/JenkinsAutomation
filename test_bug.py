@@ -3,7 +3,7 @@ import subprocess
 def test_memory_leak():
     # Compile the C++ file with AddressSanitizer
     compile_process = subprocess.run(
-        ["clang++", "-fsanitize=address", "-g", "buggy.cpp", "-o", "buggy"],
+        ["clang++", "-fsanitize=address", "-g", "jenkins/jenkins.cpp", "-o", "buggy"],
         capture_output=True,
         text=True
     )
